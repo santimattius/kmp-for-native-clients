@@ -7,6 +7,11 @@ plugins {
 }
 
 kotlin {
+
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
+    
     androidLibrary {
         namespace = "com.santimattius.kmp.shared"
         compileSdk = libs.versions.android.compileSdk.get().toInt()

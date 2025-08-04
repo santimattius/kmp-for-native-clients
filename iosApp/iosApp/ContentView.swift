@@ -2,23 +2,17 @@ import SwiftUI
 import Shared
 
 struct ContentView: View {
-    @State private var showContent = false
     var body: some View {
         VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
-                }
+            VStack(spacing: 16) {
+                Image(systemName: "swift")
+                    .font(.system(size: 200))
+                    .foregroundColor(.accentColor)
+                Text("SwiftUI: \(Greeting().greet())")
             }
-
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    Text("SwiftUI: \(Greeting().greet())")
-                }
-                .transition(.move(edge: .top).combined(with: .opacity))
+            .transition(.move(edge: .top).combined(with: .opacity))
+            Button("Click me!") {
+                Sdk.shared.logger.logException(exception: NSError(domain: "test", code: 1, userInfo: nil))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
