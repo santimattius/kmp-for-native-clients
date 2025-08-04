@@ -1,0 +1,7 @@
+TEAM_ID=
+
+PRODUCT_NAME=kmp-for-mobile-developers-course
+PRODUCT_BUNDLE_IDENTIFIER=com.santimattius.kmp.kmp-for-mobile-developers-course$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=1.0
