@@ -1,4 +1,4 @@
-package com.santimattius.kmp
+package com.santimattius.kmp.sample
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.santimattius.kmp.Greeting
+import com.santimattius.kmp.Sdk
 
 @Composable
 @Preview

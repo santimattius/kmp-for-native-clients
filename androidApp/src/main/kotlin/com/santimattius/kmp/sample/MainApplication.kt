@@ -1,8 +1,10 @@
-package com.santimattius.kmp
+package com.santimattius.kmp.sample
 
 import android.app.Application
+import com.santimattius.kmp.Sdk
 import com.santimattius.kmp.logger.AndroidLogger
 
+// MainApplication is entry point
 class MainApplication : Application() {
 
     override fun onCreate() {

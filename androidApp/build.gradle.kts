@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.santimattius.kmp"
+    namespace = "com.santimattius.kmp.sample"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.santimattius.kmp"
+        applicationId = "com.santimattius.kmp.sample"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
