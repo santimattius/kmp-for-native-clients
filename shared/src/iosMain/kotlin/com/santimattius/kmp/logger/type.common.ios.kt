@@ -2,4 +2,4 @@ package com.santimattius.kmp.logger
 
 import platform.Foundation.NSError
 
-actual typealias TrackableException = Any
+actual typealias TrackableException = NSError

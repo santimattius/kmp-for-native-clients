@@ -13,6 +13,18 @@ struct ContentView: View {
             .transition(.move(edge: .top).combined(with: .opacity))
             Button("Click me!") {
                 Sdk.shared.logger.logException(exception: NSError(domain: "test", code: 1, userInfo: nil))
+                
+            }
+            Button("Hello Android Context") {
+                /*Storage.shared.write(
+                    context: PlatformContext(),
+                    key: "key",
+                    value: "Hello Android Context"
+                )*/
+                Task {
+                    try? await Sdk.shared.getKvs().write(key: "key", value: "Hello KVS")
+                }
+                
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

@@ -10,6 +10,6 @@ actual fun getDataStore(): DataStore<Preferences> {
     return createDataStore(context = getApplicationContext())
 }
 
-private fun createDataStore(context: Context): DataStore<Preferences> = createDataStore(
+internal fun createDataStore(context: Context): DataStore<Preferences> = createDataStore(
     producePath = { context.filesDir.resolve(dataStoreFileName).absolutePath }
 )
