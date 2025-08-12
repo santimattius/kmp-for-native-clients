@@ -7,8 +7,13 @@ plugins {
 }
 
 kotlin {
+
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
+
     androidLibrary {
-        namespace = "com.santimattius.kmp.shared"
+        namespace = "com.santimattius.kmp"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -29,8 +34,20 @@ kotlin {
     }
 
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.androidx.startup.runtime)
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.android)
+        }
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+            // DataStore library
+            implementation(libs.androidx.datastore)
+            // The Preferences DataStore library
+            implementation(libs.androidx.datastore.preferences)
+
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
