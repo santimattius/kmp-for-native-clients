@@ -2,6 +2,9 @@ import SwiftUI
 import Shared
 
 struct ContentView: View {
+    
+    let logger = KoinContainer.shared.getLogger()
+    
     var body: some View {
         VStack {
             VStack(spacing: 16) {
@@ -11,8 +14,12 @@ struct ContentView: View {
                 Text("SwiftUI: \(Greeting().greet())")
             }
             .transition(.move(edge: .top).combined(with: .opacity))
-            Button("Click me!") {
+            Button("Logger") {
                 Sdk.shared.logger.logException(exception: NSError(domain: "test", code: 1, userInfo: nil))
+                
+            }
+            Button("Logger using Koin") {
+                logger.logException(exception: NSError(domain: "test", code: 1, userInfo: nil))
                 
             }
             Button("Hello Android Context") {

@@ -1,7 +1,6 @@
 package com.santimattius.kmp
 
 import platform.UIKit.UIDevice
-import platform.darwin.NSObject
 
 class IOSPlatform : Platform {
     override val name: String =

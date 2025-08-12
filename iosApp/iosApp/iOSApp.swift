@@ -6,7 +6,9 @@ struct iOSApp: App {
     
     init(){
         Sdk.shared.registerLogger(logger: IOSLogger())
-        Sdk.shared.registerDataStoreFactory(dataStoreFactory: DataStoreFactory())
+        Sdk.shared.registerLogger(logger: SwiftLogger())
+        //Sdk.shared.registerDataStoreFactory(dataStoreFactory: DataStoreFactory())
+        KoinContainer.shared.start()
     }
     
     var body: some Scene {
@@ -14,4 +16,11 @@ struct iOSApp: App {
             ContentView()
         }
     }
+}
+
+class SwiftLogger: Logger {
+    func logException(exception: any Error) {
+        print("Hello swift logger \(exception)")
+    }
+    
 }

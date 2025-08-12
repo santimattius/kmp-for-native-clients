@@ -36,6 +36,8 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(libs.androidx.startup.runtime)
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             // put your Multiplatform dependencies here
@@ -43,6 +45,9 @@ kotlin {
             implementation(libs.androidx.datastore)
             // The Preferences DataStore library
             implementation(libs.androidx.datastore.preferences)
+
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
