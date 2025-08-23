@@ -35,11 +35,20 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
+            implementation(libs.kotlinx.coroutines.android)
+            implementation(libs.ktor.client.okhttp)
+
             implementation(libs.androidx.startup.runtime)
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.android)
         }
         commonMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core)
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.serialization.kotlinx.json)
             // put your Multiplatform dependencies here
             // DataStore library
             implementation(libs.androidx.datastore)
@@ -49,6 +58,11 @@ kotlin {
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
         }
+
+        iosMain.dependencies{
+            implementation(libs.ktor.client.darwin)
+        }
+        
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }

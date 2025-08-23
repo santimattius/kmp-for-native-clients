@@ -18,6 +18,7 @@ object Sdk : KoinComponent {
         get() = _logger
 
     ///private lateinit var dataStoreFactory: DataStoreFactory
+    private var dataStore = getDataStore()
 
     fun registerLogger(logger: Logger) {
         //this._logger = logger
@@ -32,6 +33,6 @@ object Sdk : KoinComponent {
     }*/
 
     //fun getKvs(): Kvs = DataStoreKvs(dataStoreFactory.create())
-    fun getKvs(): Kvs = DataStoreKvs(dataStore = getDataStore())
+    fun getKvs(): Kvs = DataStoreKvs(dataStore = dataStore)
 
 }

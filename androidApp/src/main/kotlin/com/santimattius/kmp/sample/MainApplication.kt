@@ -1,9 +1,9 @@
 package com.santimattius.kmp.sample
 
+//import com.santimattius.kmp.context.DataStoreFactory
 import android.app.Application
 import com.santimattius.kmp.Sdk
-import com.santimattius.kmp.di.platformModule
-//import com.santimattius.kmp.context.DataStoreFactory
+import com.santimattius.kmp.di.sharedModules
 import com.santimattius.kmp.logger.AndroidLogger
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
@@ -17,7 +17,7 @@ class MainApplication : Application() {
         //Sdk.registerDataStoreFactory(DataStoreFactory(this))
         startKoin {
             androidContext(this@MainApplication)
-            modules(platformModule)
+            modules(sharedModules)
         }
     }
 }

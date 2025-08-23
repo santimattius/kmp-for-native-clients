@@ -5,10 +5,11 @@ import Shared
 struct iOSApp: App {
     
     init(){
-        Sdk.shared.registerLogger(logger: IOSLogger())
+        KoinContainer.shared.start()
+        //Sdk.shared.registerLogger(logger: IOSLogger())
         Sdk.shared.registerLogger(logger: SwiftLogger())
         //Sdk.shared.registerDataStoreFactory(dataStoreFactory: DataStoreFactory())
-        KoinContainer.shared.start()
+        
     }
     
     var body: some Scene {

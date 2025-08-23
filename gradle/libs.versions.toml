@@ -1,17 +1,17 @@
 [versions]
-agp = "8.12.0"
-kotlin = "2.2.0"
+agp = "8.12.1"
+kotlin = "2.2.10"
 
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
 
-composeBom = "2025.07.00"
+composeBom = "2025.08.00"
 androidx-lifecycle = "2.9.2"
 
 androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.1"
-androidx-core = "1.16.0"
+androidx-core = "1.17.0"
 
 datastore = "1.1.7"
 
@@ -21,6 +21,9 @@ junit = "4.13.2"
 startupRuntime = "1.2.0"
 
 koin-bom = "4.1.0"
+
+kotlinxCoroutines = "1.10.2"
+ktorVersion = "3.2.3"
 
 [libraries]
 #Android
@@ -52,6 +55,17 @@ koin-android= { module = "io.insert-koin:koin-android" }
 #Data Store
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+#Coroutines
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+
+#Ktor
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorVersion" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
 
 #App Startup (Android)
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
