@@ -102,25 +102,18 @@ class CoroutineLimitationsViewModel{
     }
     
     func flows(){
-        Task {
+        /*Task {
             try await numberRepository.getNumbers().collect(collector: AnyCollector())
-        }
+        }*/
     }
-    
-    
-//    Task {
-//            for await it in numberRepository.getNumbers() {
-//                print("Got number: \(it)")
-//            }
-//    }
     
 }
 
-class AnyCollector : Kotlinx_coroutines_coreFlowCollector {
+/*class AnyCollector : Kotlinx_coroutines_coreFlowCollector {
     func emit(value: Any?) async throws {
         print("Got number: \(value!)")
     }
-}
+}*/
 
 #Preview {
     CoroutineLimitationsView()

@@ -1,5 +1,6 @@
 package com.santimattius.kmp.concurrency
 
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -12,4 +13,7 @@ class NumberFlowRepository {
             delay(1.seconds)
         }
     }
+
+    @NativeCoroutines
+    fun getNativeNumbers(): Flow<Int> = getNumbers()
 }
