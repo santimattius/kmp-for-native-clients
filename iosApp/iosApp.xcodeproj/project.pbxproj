@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4B72CF2C2E5A7B7300491934 /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 4B72CF2B2E5A7B7300491934 /* KMPNativeCoroutinesAsync */; };
-		4B72CF2E2E5A7B7300491934 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4B72CF2D2E5A7B7300491934 /* KMPNativeCoroutinesCore */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		B9DA97B12DC1472C00A4DA20 /* kmp-for-mobile-developers-course.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kmp-for-mobile-developers-course.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -46,8 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B72CF2E2E5A7B7300491934 /* KMPNativeCoroutinesCore in Frameworks */,
-				4B72CF2C2E5A7B7300491934 /* KMPNativeCoroutinesAsync in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +85,6 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
-				4B72CF2B2E5A7B7300491934 /* KMPNativeCoroutinesAsync */,
-				4B72CF2D2E5A7B7300491934 /* KMPNativeCoroutinesCore */,
 			);
 			productName = iosApp;
 			productReference = B9DA97B12DC1472C00A4DA20 /* kmp-for-mobile-developers-course.app */;
@@ -123,9 +114,6 @@
 			);
 			mainGroup = B9DA97A82DC1472C00A4DA20;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				4B72CF2A2E5A7B7300491934 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B9DA97B22DC1472C00A4DA20 /* Products */;
 			projectDirPath = "";
@@ -386,30 +374,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4B72CF2A2E5A7B7300491934 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rickclephas/KMP-NativeCoroutines.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4B72CF2B2E5A7B7300491934 /* KMPNativeCoroutinesAsync */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4B72CF2A2E5A7B7300491934 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
-			productName = KMPNativeCoroutinesAsync;
-		};
-		4B72CF2D2E5A7B7300491934 /* KMPNativeCoroutinesCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4B72CF2A2E5A7B7300491934 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
-			productName = KMPNativeCoroutinesCore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9DA97A92DC1472C00A4DA20 /* Project object */;
 }
