@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKMPLibrary)
-    alias(libs.plugins.nativeCoroutines)
 }
 
 kotlin {
@@ -68,8 +67,4 @@ kotlin {
             implementation(libs.kotlin.test)
         }
     }
-}
-
-kotlin.sourceSets.all {
-    languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
 }
