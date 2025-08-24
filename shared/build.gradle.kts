@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKMPLibrary)
+    alias(libs.plugins.skie)
 }
 
 kotlin {
@@ -67,4 +68,8 @@ kotlin {
             implementation(libs.kotlin.test)
         }
     }
+}
+
+skie {
+    isEnabled.set(true)
 }
