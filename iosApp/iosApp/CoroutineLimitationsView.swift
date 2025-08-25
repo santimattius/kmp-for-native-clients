@@ -31,7 +31,7 @@ struct CoroutineLimitationsView: View {
                 viewModel.threads()
             }
             Button("Flows") {
-                viewModel.flows()
+                viewModel.cancelFlows()
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
@@ -43,6 +43,7 @@ struct CoroutineLimitationsView: View {
 class CoroutineLimitationsViewModel{
     private let userRepository = KoinContainer.shared.getUserRepository()
     private let numberRepository = KoinContainer.shared.getNumberFlowRepository()
+    private let platformRepository = KoinContainer.shared.getPlatformRepository()
     
     var userInfo = "unknown"
     
@@ -113,8 +114,23 @@ class CoroutineLimitationsViewModel{
         }
     }
     
-    
+    func cancelFlows(){
+        let task = Task {
+            for await it in numberRepository.getNumbers() {
+                print("Got number: \(it)")
+            }
+        }
+        task.cancel()
 
+    }
+    
+    func overloaded(){
+        Task {
+            let repo = SwiftPlatformRepository()
+            try? await repo.__getPlatform()
+            try? await repo.getPlatform()
+        }
+    }
     
 }
 
@@ -123,6 +139,13 @@ class CoroutineLimitationsViewModel{
         print("Got number: \(value!)")
     }
 }*/
+
+class SwiftPlatformRepository: PlatformRepository {
+    
+    override func __getPlatform() async throws -> any Platform {
+        return Platform_iosKt.getPlatform()
+    }
+}
 
 #Preview {
     CoroutineLimitationsView()
