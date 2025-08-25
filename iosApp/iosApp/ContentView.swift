@@ -36,6 +36,9 @@ struct ContentView: View {
                 NavigationLink(destination: CoroutineLimitationsView()) {
                     Text("Coroutine Limitations")
                 }
+                NavigationLink(destination: NativeCoroutineView()) {
+                    Text("Native Coroutine")
+                }
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
             .navigationTitle("Examples")
