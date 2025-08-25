@@ -44,7 +44,7 @@ class CoroutineLimitationsViewModel{
     private let userRepository = KoinContainer.shared.getUserRepository()
     private let numberRepository = KoinContainer.shared.getNumberFlowRepository()
     private let platformRepository = KoinContainer.shared.getPlatformRepository()
-    
+
     var userInfo = "unknown"
     
     func completionHandler() {
@@ -113,7 +113,7 @@ class CoroutineLimitationsViewModel{
             }
         }
     }
-    
+
     func cancelFlows(){
         let task = Task {
             for await it in numberRepository.getNumbers() {
@@ -123,7 +123,7 @@ class CoroutineLimitationsViewModel{
         task.cancel()
 
     }
-    
+
     func overloaded(){
         Task {
             let repo = SwiftPlatformRepository()
@@ -141,7 +141,7 @@ class CoroutineLimitationsViewModel{
 }*/
 
 class SwiftPlatformRepository: PlatformRepository {
-    
+
     override func __getPlatform() async throws -> any Platform {
         return Platform_iosKt.getPlatform()
     }
