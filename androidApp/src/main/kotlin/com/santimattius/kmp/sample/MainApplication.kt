@@ -13,11 +13,11 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Sdk.registerLogger(AndroidLogger(this))
-        //Sdk.registerDataStoreFactory(DataStoreFactory(this))
         startKoin {
             androidContext(this@MainApplication)
             modules(sharedModules)
         }
+        Sdk.registerLogger(AndroidLogger(this))
+        //Sdk.registerDataStoreFactory(DataStoreFactory(this))
     }
 }

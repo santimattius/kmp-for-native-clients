@@ -30,6 +30,9 @@ struct CoroutineLimitationsView: View {
             Button("Thread") {
                 viewModel.threads()
             }
+            Button("Flows") {
+                viewModel.cancelFlows()
+            }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
         .navigationTitle("Coroutine Limitations")
@@ -40,11 +43,13 @@ struct CoroutineLimitationsView: View {
 class CoroutineLimitationsViewModel{
     private let userRepository = KoinContainer.shared.getUserRepository()
     private let numberRepository = KoinContainer.shared.getNumberFlowRepository()
-    
+    private let platformRepository = KoinContainer.shared.getPlatformRepository()
+
     var userInfo = "unknown"
     
     func completionHandler() {
-        self.userRepository.fetchUserData(completionHandler: { user, error in
+        //TODO: skie disable completionHandler
+        /*self.userRepository.fetchUserData(completionHandler: { user, error in
             if let error = error {
                 print("Error: \(error)")
                 return
@@ -53,7 +58,7 @@ class CoroutineLimitationsViewModel{
                 self.userInfo = user.firstName + " " + user.lastName
             }
             
-        })
+        })*/
     }
     
     func swiftConcurrency(){
@@ -66,7 +71,7 @@ class CoroutineLimitationsViewModel{
         // En Swift, esto parece funcionar normalmente
         Task {
             do {
-                let user = try await userRepository.randomUserData()
+                let user = try await userRepository.fetchUserData()
                 print(user)
             } catch {
                 print("Error: \(error)")
@@ -103,22 +108,42 @@ class CoroutineLimitationsViewModel{
     
     func flows(){
         Task {
-            try await numberRepository.getNumbers().collect(collector: AnyCollector())
+            for await it in numberRepository.getNumbers() {
+                print("Got number: \(it)")
+            }
+        }
+    }
+
+    func cancelFlows(){
+        let task = Task {
+            for await it in numberRepository.getNumbers() {
+                print("Got number: \(it)")
+            }
+        }
+        task.cancel()
+
+    }
+
+    func overloaded(){
+        Task {
+            let repo = SwiftPlatformRepository()
+            try? await repo.__getPlatform()
+            try? await repo.getPlatform()
         }
     }
     
-    
-//    Task {
-//            for await it in numberRepository.getNumbers() {
-//                print("Got number: \(it)")
-//            }
-//    }
-    
 }
 
-class AnyCollector : Kotlinx_coroutines_coreFlowCollector {
+/*class AnyCollector : Kotlinx_coroutines_coreFlowCollector {
     func emit(value: Any?) async throws {
         print("Got number: \(value!)")
+    }
+}*/
+
+class SwiftPlatformRepository: PlatformRepository {
+
+    override func __getPlatform() async throws -> any Platform {
+        return Platform_iosKt.getPlatform()
     }
 }
 
