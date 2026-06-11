@@ -1,6 +1,6 @@
 [versions]
 agp = "9.2.1"
-kotlin = "2.4.0"
+kotlin = "2.3.21"
 skie = "0.10.12"
 
 android-compileSdk = "37"
@@ -23,8 +23,8 @@ startupRuntime = "1.2.0"
 
 koin-bom = "4.2.1"
 
-kotlinxCoroutines = "1.10.2"
-ktorVersion = "3.2.3"
+kotlinxCoroutines = "1.11.0"
+ktorVersion = "3.5.0"
 
 [libraries]
 #Android
