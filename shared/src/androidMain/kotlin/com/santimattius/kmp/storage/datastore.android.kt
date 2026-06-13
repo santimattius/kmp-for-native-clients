@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import com.santimattius.kmp.context.getApplicationContext
 
 
-actual fun getDataStore(): DataStore<Preferences> {
+internal actual fun getDataStore(): DataStore<Preferences> {
     return createDataStore(context = getApplicationContext())
 }
 

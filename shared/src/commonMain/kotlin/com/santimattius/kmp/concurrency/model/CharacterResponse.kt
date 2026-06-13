@@ -4,12 +4,12 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CharacterResponse(
+internal data class CharacterResponse(
     @SerialName("items") val items: List<NetworkCharacter>,
 )
 
 @Serializable
-data class NetworkCharacter(
+internal data class NetworkCharacter(
     @SerialName("id") val id: Long,
     @SerialName("name") val name: String,
     @SerialName("ki") val ki: String,

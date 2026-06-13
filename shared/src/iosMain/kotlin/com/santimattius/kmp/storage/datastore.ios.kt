@@ -8,12 +8,12 @@ import platform.Foundation.NSFileManager
 import platform.Foundation.NSURL
 import platform.Foundation.NSUserDomainMask
 
-actual fun getDataStore(): DataStore<Preferences> {
+internal actual fun getDataStore(): DataStore<Preferences> {
     return createDataStore()
 }
 
 @OptIn(ExperimentalForeignApi::class)
-fun createDataStore(): DataStore<Preferences> = createDataStore(
+internal fun createDataStore(): DataStore<Preferences> = createDataStore(
     producePath = {
         val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
             directory = NSDocumentDirectory,

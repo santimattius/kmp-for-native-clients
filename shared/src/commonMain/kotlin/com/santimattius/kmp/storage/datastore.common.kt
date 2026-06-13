@@ -8,11 +8,11 @@ import okio.Path.Companion.toPath
 /**
  *   Gets the singleton DataStore instance, creating it if necessary.
  */
-fun createDataStore(producePath: () -> String): DataStore<Preferences> =
+internal fun createDataStore(producePath: () -> String): DataStore<Preferences> =
     PreferenceDataStoreFactory.createWithPath(
         produceFile = { producePath().toPath() }
     )
 
 internal const val dataStoreFileName = "example.preferences_pb"
 
-expect fun getDataStore(): DataStore<Preferences>
+internal expect fun getDataStore(): DataStore<Preferences>

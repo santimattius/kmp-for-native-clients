@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 
-class DragonBallRepository(
+internal class DragonBallRepository(
     private val client: HttpClient,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {

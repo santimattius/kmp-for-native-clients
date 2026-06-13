@@ -7,7 +7,7 @@ import platform.Foundation.NSUserDefaults
  * iOS specific implementation of [KSharedPreferences].
  * This class provides a way to store and retrieve key-value pairs using iOS's NSUserDefaults.
  */
-class IOSPreferences : KSharedPreferences {
+internal class IOSPreferences : KSharedPreferences {
 
     private val userDefaults = NSUserDefaults.standardUserDefaults
 
