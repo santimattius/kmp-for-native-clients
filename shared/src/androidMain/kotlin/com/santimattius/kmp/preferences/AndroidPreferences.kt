@@ -8,7 +8,7 @@ import android.content.Context
  *
  * @property context The application context, used to access SharedPreferences.
  */
-class AndroidPreferences(
+internal class AndroidPreferences(
     context: Context
 ) : KSharedPreferences {
 

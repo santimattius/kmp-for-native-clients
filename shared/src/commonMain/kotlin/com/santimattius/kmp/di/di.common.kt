@@ -9,8 +9,7 @@ import io.ktor.client.HttpClient
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-expect val platformModule: Module
-
+internal expect val platformModule: Module
 
 private val commonModule = module {
     single<HttpClient> { ktorHttpClient(baseUrl = BASE_URL) }
@@ -19,5 +18,5 @@ private val commonModule = module {
     single<NumberFlowRepository> { NumberFlowRepository() }
 }
 
-val sharedModules = listOf(commonModule, platformModule)
+internal val sharedModules = listOf(commonModule, platformModule)
 

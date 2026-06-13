@@ -5,9 +5,8 @@ import androidx.datastore.preferences.core.Preferences
 import com.santimattius.kmp.BadImplementation
 
 @BadImplementation
-expect fun getDataStore(context: PlatformContext): DataStore<Preferences>
+internal expect fun getDataStore(context: PlatformContext): DataStore<Preferences>
 
-
-expect class DataStoreFactory{
-    fun create():DataStore<Preferences>
+internal expect class DataStoreFactory {
+    fun create(): DataStore<Preferences>
 }

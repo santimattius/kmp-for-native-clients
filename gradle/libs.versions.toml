@@ -1,7 +1,6 @@
 [versions]
 agp = "9.2.1"
-kotlin = "2.3.21"
-skie = "0.10.12"
+kotlin = "2.4.0"
 
 android-compileSdk = "37"
 android-minSdk = "24"
@@ -88,4 +87,3 @@ androidKMPLibrary = { id = "com.android.kotlin.multiplatform.library", version.r
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-skie = { id = "co.touchlab.skie", version.ref = "skie" }

@@ -3,7 +3,7 @@ import Shared
 
 struct ContentView: View {
     
-    let logger = KoinContainer.shared.getLogger()
+    let logger = Sdk.shared.getLogger()
     
     var body: some View {
         NavigationView{
@@ -24,13 +24,8 @@ struct ContentView: View {
                     
                 }
                 Button("Hello Kvs") {
-                    /*Storage.shared.write(
-                        context: PlatformContext(),
-                        key: "key",
-                        value: "Hello Android Context"
-                    )*/
                     Task {
-                        try? await Sdk.shared.getKvs().write(key: "key", value: "Hello KVS")
+                        try? await Sdk.shared.writeKvs(key: "key", value: "Hello KVS")
                     }
                 }
                 NavigationLink(destination: CoroutineLimitationsView()) {

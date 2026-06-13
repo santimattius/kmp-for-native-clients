@@ -9,7 +9,7 @@ import platform.Foundation.NSUserDefaults
  *
  * @property userDefaults The NSUserDefaults instance to be edited.
  */
-class IOSEditor(
+internal class IOSEditor(
     private var userDefaults: NSUserDefaults
 ) : KSharedPreferences.KEditor {
 

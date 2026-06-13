@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.swiftexport.ExperimentalSwiftExportDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKMPLibrary)
-    alias(libs.plugins.skie)
 }
 
 kotlin {
@@ -68,8 +68,10 @@ kotlin {
             implementation(libs.kotlin.test)
         }
     }
-}
 
-skie {
-    isEnabled.set(true)
+    @OptIn(ExperimentalSwiftExportDsl::class)
+    swiftExport {
+        moduleName = "Shared"
+        flattenPackage = "com.santimattius.kmp"
+    }
 }

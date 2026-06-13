@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-interface Kvs {
+// internal: Flow<String> in read() cannot be bridged by Swift Export.
+// iOS callers use Sdk.writeKvs() directly instead of holding a Kvs reference.
+internal interface Kvs {
 
     suspend fun write(key: String, value: String)
 

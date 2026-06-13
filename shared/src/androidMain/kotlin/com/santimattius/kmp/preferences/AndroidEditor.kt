@@ -9,7 +9,7 @@ import android.content.SharedPreferences
  *
  * @property edit The underlying [SharedPreferences.Editor] instance.
  */
-class AndroidEditor(
+internal class AndroidEditor(
     private var edit: SharedPreferences.Editor
 ) : KSharedPreferences.KEditor {
     /**

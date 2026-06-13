@@ -1,6 +1,6 @@
 package com.santimattius.kmp.concurrency
 
-data class Character(
+internal data class Character(
     val id: Long,
     val name: String,
     val image: String,

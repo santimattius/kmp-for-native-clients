@@ -1,6 +1,6 @@
 package com.santimattius.kmp.preferences
 
-interface KSharedPreferences {
+internal interface KSharedPreferences {
     interface KEditor {
 
         fun putString(key: String, value: String): KEditor

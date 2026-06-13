@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-object Storage {
+internal object Storage {
 
     private var dataStore: DataStore<Preferences>? = null
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
